@@ -1,0 +1,36 @@
+variables:
+    ArmTemplateRoot: '$(Build.SourcesDirectory)\Resources\ArmTemplates' 
+    ApimPolicyRoot: '$(Build.SourcesDirectory)\Resources\ApimPolicies'
+
+resources:
+  repositories:
+  - repository: self
+  - repository: mon-devops
+    type: github
+    name: olusola-adio/mon-devops
+    endpoint: 'olusola-adio'
+    ref: refs/tags/v1.11.1
+
+jobs:
+
+- job: BuildAndTestArmTemplate
+  displayName: BuildAndTestArmTemplate
+  pool:
+    vmImage: vs2017-win2016
+
+  steps:
+  - template: AzureDevOpsTemplates/Build/StepTemplates/mon-arm-build.yml@mon-devops
+    parameters:
+      ArmTemplateRoot: $(ArmTemplateRoot)
+
+  - task: CopyFiles@2
+    displayName: 'Copy APIM policies to staging'
+    inputs:
+      SourceFolder: $(ApimPolicyRoot)
+      TargetFolder: $(build.artifactstagingdirectory)/Azure/ApimPolicies
+
+  - task: PublishBuildArtifacts@1
+    displayName: Publish Artifact
+    inputs:
+      pathtoPublish: $(Build.ArtifactStagingDirectory)
+      artifactName: AzureResources
