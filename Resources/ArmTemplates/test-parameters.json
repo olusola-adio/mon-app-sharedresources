@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "apimResourceGroup": {
-            "value": "dwp-test-template-rg"
+            "value": "mon-test-template-rg"
         },
         "apimServiceName": {
-            "value": "dwp-foo-shared-apim"
+            "value": "mon-foo-shared-apim"
         },
         "aspInstances": {
             "value": 2
@@ -18,7 +18,7 @@
             "value": "Standard"
         },
         "cosmosDbName": {
-            "value": "dwp-dev-app-sharedresources-cdb"
+            "value": "mon-dev-app-sharedresources-cdb"
         },
         "environment": {
             "value": "FOO"
