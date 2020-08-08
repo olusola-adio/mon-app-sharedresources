@@ -2,35 +2,8 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "apimResourceGroup": {
-            "value": "mon-test-template-rg"
-        },
-        "apimServiceName": {
-            "value": "mon-foo-shared-apim"
-        },
-        "aspInstances": {
-            "value": 2
-        },
-        "aspSize": {
-            "value": "1"
-        },
-        "aspTier": {
-            "value": "Standard"
-        },
-        "cosmosDbName": {
-            "value": "mon-dev-app-sharedresources-cdb"
-        },
         "environment": {
             "value": "FOO"
-        },
-        "jobprofileDatabaseNeedsCreation": {
-            "value": false
-        },
-        "jobprofileDatabaseOfferThroughput": {
-            "value": 400
-        },
-        "serviceBusFirewallIpAddresses": {
-            "value": []
         },
         "slackWebhookToken": {
             "value": "a-slack-token"

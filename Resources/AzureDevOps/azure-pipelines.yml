@@ -22,15 +22,3 @@ jobs:
   - template: AzureDevOpsTemplates/Build/StepTemplates/mon-arm-build.yml@mon-devops
     parameters:
       ArmTemplateRoot: $(ArmTemplateRoot)
-
-  - task: CopyFiles@2
-    displayName: 'Copy APIM policies to staging'
-    inputs:
-      SourceFolder: $(ApimPolicyRoot)
-      TargetFolder: $(build.artifactstagingdirectory)/Azure/ApimPolicies
-
-  - task: PublishBuildArtifacts@1
-    displayName: Publish Artifact
-    inputs:
-      pathtoPublish: $(Build.ArtifactStagingDirectory)
-      artifactName: AzureResources
