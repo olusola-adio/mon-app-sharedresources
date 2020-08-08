@@ -39,7 +39,7 @@
         "MonitoringAppInsightsName": "[concat(variables('ResourcePrefix'), '-mon-ai')]",
         "MonitoringFunctionAppName": "[concat(variables('ResourcePrefix'), '-mon-fa')]",
         "ActionGroupName": "[concat(variables('ResourcePrefix'), '-actgrp')]",
-        "containerRegistryName": "[toLower(concat(replace(variables('resourcePrefix'),'-',''),'cr'))]"
+        "containerRegistryName": "[tolower(concat('mon', parameters('environment'), 'appsharedcr'))]"
     },
     "resources": [
         {
