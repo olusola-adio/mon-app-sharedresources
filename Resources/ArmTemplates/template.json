@@ -38,7 +38,7 @@
         "MonitoringAppServicePlanName": "[concat(variables('ResourcePrefix'), '-mon-asp')]",
         "MonitoringAppInsightsName": "[concat(variables('ResourcePrefix'), '-mon-ai')]",
         "MonitoringFunctionAppName": "[concat(variables('ResourcePrefix'), '-mon-fa')]",
-        "ActionGroupName": "[concat(variables('ResourcePrefix'), '-actgrp')]",
+        "ActionGroupName": "[concat(variables('ResourcePrefix'), '-actgrp')]"
     },
     "resources": [
         {
