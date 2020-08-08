@@ -38,9 +38,28 @@
         "MonitoringAppServicePlanName": "[concat(variables('ResourcePrefix'), '-mon-asp')]",
         "MonitoringAppInsightsName": "[concat(variables('ResourcePrefix'), '-mon-ai')]",
         "MonitoringFunctionAppName": "[concat(variables('ResourcePrefix'), '-mon-fa')]",
-        "ActionGroupName": "[concat(variables('ResourcePrefix'), '-actgrp')]"
+        "ActionGroupName": "[concat(variables('ResourcePrefix'), '-actgrp')]",
+        "containerRegistryName": "[toLower(concat(replace(variables('resourcePrefix'),'-',''),'cr'))]"
     },
     "resources": [
+        {
+            "name": "containerRegistry",
+            "type": "Microsoft.Resources/deployments",
+            "condition": "[or(equals(parameters('environment'), 'DEV'), equals(parameters('environment'), 'PRD'))]",
+            "apiVersion": "2017-05-10",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('deploymentUrlBase'), 'container-registry.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "containerRegistryName": {
+                        "value": "[variables('containerRegistryName')]"
+                    }
+                }
+            }
+        },
         {
             "name": "appSharedStorageAccount",
             "type": "Microsoft.Resources/deployments",
@@ -68,8 +87,8 @@
                 "computeMode": "Dynamic"
             },
             "sku": {
-                "name":"Y1",
-                "tier":"Dynamic"
+                "name": "Y1",
+                "tier": "Dynamic"
             }
         },
         {
