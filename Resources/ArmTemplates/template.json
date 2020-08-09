@@ -238,6 +238,59 @@
         },
         {
             "apiVersion": "2019-05-01",
+            "name": "[concat(variables('MonitoringAppInsightsName'), '-metric-success')]",
+            "type": "Microsoft.Resources/deployments",
+            "dependsOn": [
+                "[variables('MonitoringFunctionAppName')]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('deploymentUrlBase'), 'Application-Insights/metric-alerts.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "enabled": {
+                        "value": "[parameters('enableAlerts')]"
+                    },
+                    "alertName": {
+                        "value": "[concat(variables('MonitoringAppInsightsName'), '-metric-success')]"
+                    },
+                    "alertSeverity": {
+                        "value": 3
+                    },
+                    "metricName": {
+                        "value": "success/count"
+                    },
+                    "operator": {
+                        "value": "GreaterThan"
+                    },
+                    "threshold": {
+                        "value": "0"
+                    },
+                    "aggregation": {
+                        "value": "Count"
+                    },
+                    "windowSize": {
+                        "value": "PT5M"
+                    },
+                    "evaluationFrequency": {
+                        "value": "PT1M"
+                    },
+                    "actionGroupName": {
+                        "value": "[variables('ActionGroupName')]"
+                    },
+                    "actionGroupResourceGroup": {
+                        "value": "[resourceGroup().name]"
+                    },
+                    "resourceId": {
+                        "value": "[resourceId('Microsoft.Insights/Components', variables('MonitoringAppInsightsName'))]"
+                    }
+                }
+            }
+        },
+        {
+            "apiVersion": "2019-05-01",
             "name": "[concat(variables('MonitoringAppInsightsName'), '-failure-anomaly-v2')]",
             "type": "Microsoft.Resources/deployments",
             "dependsOn": [
