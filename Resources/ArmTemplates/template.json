@@ -228,7 +228,7 @@
                         "value": "[variables('ActionGroupName')]"
                     },
                     "actionGroupResourceGroup": {
-                        "value": "[resourceGroup().location]"
+                        "value": "[resourceGroup().name]"
                     },
                     "resourceId": {
                         "value": "[resourceId('Microsoft.Insights/Components', variables('MonitoringAppInsightsName'))]"
