@@ -260,7 +260,7 @@
                         "value": 3
                     },
                     "metricName": {
-                        "value": "PostMessageToSlack/Successes"
+                        "value": "PostMessageToSlack Successes"
                     },
                     "operator": {
                         "value": "GreaterThan"
