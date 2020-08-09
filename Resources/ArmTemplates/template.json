@@ -238,7 +238,7 @@
         },
         {
             "apiVersion": "2019-05-01",
-            "name": "[concat(variables('MonitoringAppInsightsName'), '-metric-success')]",
+            "name": "[concat(variables('MonitoringAppInsightsName'), '-metric-requests')]",
             "type": "Microsoft.Resources/deployments",
             "dependsOn": [
                 "[variables('MonitoringFunctionAppName')]"
@@ -254,13 +254,13 @@
                         "value": "[parameters('enableAlerts')]"
                     },
                     "alertName": {
-                        "value": "[concat(variables('MonitoringAppInsightsName'), '-metric-success')]"
+                        "value": "[concat(variables('MonitoringAppInsightsName'), '-metric-requests')]"
                     },
                     "alertSeverity": {
                         "value": 3
                     },
                     "metricName": {
-                        "value": "success/count"
+                        "value": "requests/count"
                     },
                     "operator": {
                         "value": "GreaterThan"
