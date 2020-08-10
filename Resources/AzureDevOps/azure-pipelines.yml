@@ -22,3 +22,8 @@ jobs:
   - template: AzureDevOpsTemplates/Build/StepTemplates/mon-arm-build.yml@mon-devops
     parameters:
       ArmTemplateRoot: $(ArmTemplateRoot)
+  # Getting the IP of the deployed service and writing it to a variable for posing comment
+  - script: |
+      message="Your build has passed"
+      message="${message}.<br><br>[Learn More](https://aka.ms/testwithreviewapps) about how to test and provide feedback for the app."
+      echo "##vso[task.setvariable variable=GITHUB_COMMENT]$message"
