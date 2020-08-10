@@ -17,6 +17,9 @@
         },
         "enableAlerts": {
             "value": __EnableAzureMonitorAlerting__
+        },
+        "payStackSecret": {
+            "value": "__payStackSecret__"
         }
     }
 }

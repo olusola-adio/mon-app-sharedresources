@@ -17,6 +17,12 @@
                 "description": "The slack channel to send alerts to"
             }
         },
+        "payStackSecret": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The pay stack secret"
+            }
+        },
         "emailAddressForAlerts": {
             "type": "string",
             "defaultValue": "",
@@ -145,6 +151,10 @@
                         {
                             "name": "SlackToken",
                             "value": "[parameters('slackWebHookToken')]"
+                        },
+                        {
+                            "name": "PayStackSecret",
+                            "value": "[parameters('payStackSecret')]"
                         },
                         {
                             "name": "MSDEPLOY_RENAME_LOCKED_FILES",

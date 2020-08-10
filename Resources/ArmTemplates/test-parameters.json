@@ -16,6 +16,9 @@
         },
         "enableAlerts": {
             "value": false
+        },
+        "payStackSecret": {
+            "value": "my-paystack-secret"
         }
     }
 }
