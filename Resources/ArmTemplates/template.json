@@ -17,6 +17,18 @@
                 "description": "The slack channel to send alerts to"
             }
         },
+        "slackWebhookTokenPayStack": {
+            "type": "securestring",
+            "metadata": {
+                "description": "the token (everything after https://hooks.slack.com/services/) for an incoming webhook in slack from paystack"
+            }
+        },
+        "slackChannelForPayStackAlerts": {
+            "type": "string",
+            "metadata": {
+                "description": "The paystack slack channel to send alerts to"
+            }
+        },
         "payStackSecret": {
             "type": "securestring",
             "metadata": {
@@ -153,8 +165,16 @@
                             "value": "[parameters('slackWebHookToken')]"
                         },
                         {
+                            "name": "SlackTokenPayStack",
+                            "value": "[parameters('slackWebhookTokenPayStack')]"
+                        },
+                        {
                             "name": "PayStackSecret",
                             "value": "[parameters('payStackSecret')]"
+                        },
+                        {
+                            "name": "PayStackSlackChannel",
+                            "value": "[parameters('slackChannelForPayStackAlerts')]"
                         },
                         {
                             "name": "MSDEPLOY_RENAME_LOCKED_FILES",
