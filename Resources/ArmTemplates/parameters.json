@@ -12,11 +12,20 @@
         "slackChannelForAlerts": {
             "value": "__slackChannelForAlerts__"
         },
+        "slackWebhookTokenPayStack": {
+            "value": "__slackWebhookTokenPayStack__"
+        },
+        "slackChannelForPayStackAlerts": {
+            "value": "__slackChannelForPayStackAlerts__"
+        },
         "emailAddressForAlerts": {
             "value": "__emailAddressForAlerts__"
         },
         "enableAlerts": {
             "value": __EnableAzureMonitorAlerting__
+        },
+        "payStackSecret": {
+            "value": "__payStackSecret__"
         }
     }
 }

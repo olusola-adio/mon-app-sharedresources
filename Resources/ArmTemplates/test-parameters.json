@@ -11,11 +11,20 @@
         "slackChannelForAlerts": {
             "value": "alerting-slack-channel"
         },
+        "slackWebhookTokenPayStack": {
+            "value": "slack-paystack"
+        },
+        "slackChannelForPayStackAlerts": {
+            "value": "slack-channel-paystack"
+        },
         "emailAddressForAlerts": {
             "value": "test@test.com"
         },
         "enableAlerts": {
             "value": false
+        },
+        "payStackSecret": {
+            "value": "my-paystack-secret"
         }
     }
 }
