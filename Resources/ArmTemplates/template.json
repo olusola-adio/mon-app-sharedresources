@@ -304,7 +304,7 @@
                         "value": "GreaterThan"
                     },
                     "threshold": {
-                        "value": "2"
+                        "value": "4"
                     },
                     "aggregation": {
                         "value": "Count"
