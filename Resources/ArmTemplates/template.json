@@ -57,7 +57,8 @@
         "MonitoringAppInsightsName": "[concat(variables('ResourcePrefix'), '-mon-ai')]",
         "MonitoringFunctionAppName": "[concat(variables('ResourcePrefix'), '-mon-fa')]",
         "ActionGroupName": "[concat(variables('ResourcePrefix'), '-actgrp')]",
-        "containerRegistryName": "[tolower(concat('mon', parameters('environment'), 'appsharedcr'))]"
+        "containerRegistryName": "[tolower(concat('mon', parameters('environment'), 'appsharedcr'))]",
+        "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
     },
     "resources": [
         {
@@ -185,7 +186,7 @@
                         },
                         {
                             "name": "StorageAccountKey",
-                            "value": "[reference('appSharedStorageAccount').keys[0].value]"
+                            "value": "[listKeys(variables('storageAccountId'), '2019-04-01').keys[0].value]"
                         }
                     ]
                 }
