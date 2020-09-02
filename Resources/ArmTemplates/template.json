@@ -182,6 +182,10 @@
                         {
                             "name": "MSDEPLOY_RENAME_LOCKED_FILES",
                             "value": "1"
+                        },
+                        {
+                            "name": "StorageAccountKey",
+                            "value": "[listKeys(reference('appSharedStorageAccount'), '2019-04-01').keys[0].value]"
                         }
                     ]
                 }
