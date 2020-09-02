@@ -185,7 +185,7 @@
                         },
                         {
                             "name": "StorageAccountKey",
-                            "value": "[listKeys(reference('appSharedStorageAccount'), '2018-11-01').keys[0].value]"
+                            "value": "[reference('appSharedStorageAccount').keys[0].value]"
                         }
                     ]
                 }
