@@ -188,7 +188,8 @@
                             "name": "StorageAccountKey",
                             "value": "[listKeys(variables('storageAccountId'), '2019-04-01').keys[0].value]"
                         }
-                    ]
+                    ],
+                    "powerShellVersion": "~7"
                 }
             }
         },
