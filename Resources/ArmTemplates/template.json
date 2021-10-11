@@ -165,6 +165,10 @@
                             "value": "~3"
                         },
                         {
+                            "name": "FUNCTIONS_WORKER_RUNTIME_VERSION",
+                            "value": "~7"
+                        },
+                        {
                             "name": "SlackToken",
                             "value": "[parameters('slackWebHookToken')]"
                         },
@@ -188,8 +192,7 @@
                             "name": "StorageAccountKey",
                             "value": "[listKeys(variables('storageAccountId'), '2019-04-01').keys[0].value]"
                         }
-                    ],
-                    "powerShellVersion": "~7"
+                    ]
                 }
             }
         },
